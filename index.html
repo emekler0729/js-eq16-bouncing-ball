@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script src="code/ball.js"></script>
+    <script>
+        var actors = [];
+        actors.push(new Ball(10, 10, 10, 100, 100));
+        actors.push(new Ball(390, 10, 10, -50, 200));
+        var level = new Level(400, 400, actors);
+        var display = new CanvasDisplay(document.body, level);
+
+        runAnimation(function(step) {
+            level.animate(step);
+            display.drawFrame(step);
+        });
+    </script>
+</body>
+</html>
