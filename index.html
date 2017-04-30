@@ -7,10 +7,18 @@
 <body>
     <script src="code/ball.js"></script>
     <script>
-        var actors = [];
-        actors.push(new Ball(10, 10, 10, 100, 100));
-        actors.push(new Ball(390, 10, 10, -50, 200));
-        var level = new Level(400, 400, actors);
+        var objects = [];
+        objects.push(new Ball(10, 10, 10, 100, 100));
+        objects.push(new Ball(390, 10, 10, -50, 200));
+        for(var i = 0; i < 0; i++) {
+            var radius = Math.ceil(Math.random() * 40) + 10;
+            var xPos = Math.ceil(Math.random() * 400 - radius) + radius;
+            var yPos = Math.ceil(Math.random() * 400 - radius) + radius;
+            var xSpeed = Math.ceil(Math.random() * 400);
+            var ySpeed = Math.ceil(Math.random() * 400);
+            objects.push(new Ball(xPos, yPos, radius, xSpeed, ySpeed));
+        }
+        var level = new Level(400, 400, objects);
         var display = new CanvasDisplay(document.body, level);
 
         runAnimation(function(step) {
